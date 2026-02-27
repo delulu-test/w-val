@@ -1,33 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yay! 🎉</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
-</head>
-<body>
-    <div class="hearts-bg"></div>
-
-    <div class="container yes-container">
-        <h1 class="yes-title">Knew you would say yes! 🎉</h1>
-
-        <div class="gif-container">
-            <img id="cat-gif" src="https://media.tenor.com/eNHbizSfVb0AAAAj/lovemode-cute.gif" alt="celebrating">
+<div class="container yes-container">
+    <h1 class="yes-title" id="main-title">Choose our date dinner:</h1>
+    
+    <div id="food-grid" class="food-grid">
+        <div class="food-item runaway" onmouseover="runAway(this)">
+            <img src="https://media.foody.vn/res/g1/437/prof/s640x400/foody-mobile-manwah-hanoi.jpg" alt="Manwah">
+            <span>Manwah 🍲</span>
         </div>
 
-        <p class="yes-message">You just made me the happiest person! 💕</p>
+        <div class="food-item runaway" onmouseover="runAway(this)">
+            <img src="https://kingsalmon.com.vn/wp-content/uploads/2023/11/salmon-club-sandwich.jpg" alt="Salmon Club">
+            <span>Salmon Club 🍣</span>
+        </div>
+
+        <div class="food-item runaway" onmouseover="runAway(this)">
+            <img src="https://gogi.com.vn/media/2023/12/thit-nuong-gogi.jpg" alt="Gogi">
+            <span>Gogi House 🥩</span>
+        </div>
+
+        <div class="food-item runaway" onmouseover="runAway(this)">
+            <img src="https://thaimarket.vn/wp-content/uploads/2022/07/pad-thai.jpg" alt="Thai Market">
+            <span>Thai Market 🥗</span>
+        </div>
+
+        <div class="food-item runaway" onmouseover="runAway(this)">
+            <img src="https://media.foody.vn/res/g1/168/prof/s640x400/foody-mobile-lau-quen-ten.jpg" alt="Hotpot">
+            <span>That Hotpot Place... 🍲</span>
+        </div>
+
+        <div class="food-item main-choice" onclick="select4Ps()">
+            <img src="https://images.deliveryhero.io/image/fd-vn/LH/p2wa-hero.jpg" alt="4Ps">
+            <span>Pizza 4P's 🍕</span>
+        </div>
     </div>
 
-    <audio id="bg-music" loop>
-        <source src="music/beabadoobee - Glue Song (Lyrics).mp3" type="audio/mpeg">
-    </audio>
-
-    <button id="music-toggle" onclick="toggleMusic()" title="Toggle music">🔊</button>
-
-    <script src="yes-script.js"></script>
-</body>
-</html>
+    <div id="final-message" class="hidden">
+        <h1 class="yes-title">Perfect choice! 🥂</h1>
+        <p class="yes-message">I'll make the reservation at 4P's.<br>
+        <span style="color: #ff4d6d; font-weight: bold;">(Reminder: Need to book 2 days in advance, so don't be late! 😉)</span></p>
+        <p class="yes-message">See you soon! ❤️</p>
+    </div>
+</div>
