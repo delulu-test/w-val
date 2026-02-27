@@ -12,20 +12,19 @@
     <div class="hearts-bg"></div>
 
     <div class="container">
-        <h1>Can't send a hug, so I made this for you 💕</h1>
+        <h1 id="typewriter" style="min-height: 80px;">Press start to see...</h1>
 
         <div class="gif-container">
-            <img id="cat-gif" src="https://media.tenor.com/EBV7OT7ACfwAAAAj/u-u-qua-qua-u-quaa.gif" alt="cute character">
+            <img id="cat-gif" src="https://media.tenor.com/L_y2jP4mU38AAAAj/bubu-dudu-bubu.gif" alt="cute character">
         </div>
 
         <div class="buttons">
-            <button id="yes-btn" onclick="handleYesClick()">Yes</button>
-            <button id="no-btn" onclick="handleNoClick()">No</button>
+            <button id="yes-btn" onclick="handleNextStep()">Click here</button>
+            <button id="no-btn" style="display: none;">No</button>
         </div>
-        <div id="tease-toast"></div>
     </div>
 
-    <audio id="bg-music" loop autoplay muted>
+    <audio id="bg-music" loop>
         <source src="music/beabadoobee - Glue Song (Lyrics).mp3" type="audio/mpeg">
     </audio>
 
