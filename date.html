@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Choose our dinner 💕</title>
+<title>Dinner First 💕</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -11,46 +11,50 @@
 <div class="hearts-bg"></div>
 
 <div class="container">
-    <h1>Pick where we have dinner 💗</h1>
+    <h1>First… where are we having dinner? 😌</h1>
 
     <div class="food-grid">
 
-        <!-- CHỈ CẦN THAY src LÀ ĐỔI ẢNH -->
-        <div class="food-card" onclick="wrongChoice()">
-            <img src="images/salmon.jpg">
-            <p>Salmon Club</p>
-        </div>
-
-        <div class="food-card" onclick="wrongChoice()">
-            <img src="images/manwah.jpg">
-            <p>Manwah</p>
-        </div>
-
-        <div class="food-card" onclick="chooseFood('4P')">
-            <img src="images/4p.jpg">
-            <p>4P's</p>
-        </div>
-        
-        <div class="food-card" onclick="wrongChoice()">
-            <img src="images/gogi.jpg">
-            <p>Gogi</p>
-        </div>
-
-        <div class="food-card" onclick="wrongChoice()">
+        <div class="food-card" onclick="correctDinner()">
             <img src="images/thai.jpg">
             <p>Thai Market</p>
         </div>
 
-        <div class="food-card" onclick="wrongChoice()">
-            <img src="images/lau.jpg">
-            <p> What hotpot I forget.. 😆</p>
+        <div class="food-card" onclick="wrongDinner()">
+            <img src="images/salmon.jpg">
+            <p>Salmon Club</p>
+        </div>
+
+        <div class="food-card" onclick="wrongDinner()">
+            <img src="images/manwah.jpg">
+            <p>Manwah</p>
+        </div>
+
+        <div class="food-card" onclick="wrongDinner()">
+            <img src="images/gogi.jpg">
+            <p>Gogi</p>
+        </div>
+
+        <div class="food-card" onclick="wrongDinner()">
+            <img src="images/4ps.jpg">
+            <p>4P's</p>
         </div>
 
     </div>
 
-    <p id="food-message"></p>
+    <p id="dinner-message"></p>
 </div>
 
-<script src="date-script.js"></script>
+<script>
+function wrongDinner(){
+    document.getElementById("dinner-message").textContent =
+    "Hmm… are you sure? Try again 😏"
+}
+
+function correctDinner(){
+    window.location.href = "after.html"
+}
+</script>
+
 </body>
 </html>
