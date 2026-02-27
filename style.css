@@ -204,3 +204,19 @@ h1 {
     width: 260px;
     height: 260px;
 }
+
+.food-item {
+    transition: all 0.2s ease;
+    padding: 15px;
+    background: white;
+    border: 2px solid #ff8fa3;
+    border-radius: 15px;
+    margin: 10px 0;
+    cursor: pointer;
+    font-weight: bold;
+    color: #d63384;
+}
+.main-choice:hover {
+    background: #ff8fa3;
+    color: white;
+}
