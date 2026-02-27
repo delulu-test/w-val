@@ -1,9 +1,10 @@
 const lines = [
     "Can't send a hug, so I made this for you 💕"
     "Hey you, I know you're busy...",
-    "But just wanted to drop a little something to boost your morning.",
-    "Distance sucks, but thinking about you doesn't. 🤏",
-    "Since it's 14/03, let's plan a little date for when you're back.",
+    "But I just wanted to drop something to brighten your day.",
+    "Distance sucks, but thinking about you doesn’t. 🤏",
+    "So since it's 14/03...",
+    "Let’s plan our little future date.",
     "Ready? 😉"
 ]
 
@@ -17,7 +18,6 @@ noBtn.style.display = "none"
 
 function typeLine() {
     if (currentLine < lines.length) {
-
         title.style.opacity = 0
 
         setTimeout(() => {
