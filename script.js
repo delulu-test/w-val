@@ -44,3 +44,10 @@ yesBtn.addEventListener("click", function() {
 noBtn.addEventListener("click", function() {
     alert("Wrong answer 😌");
 });
+document.addEventListener("click", function startMusicOnce() {
+    const music = document.getElementById("bg-music");
+    if (music) {
+        music.play();
+    }
+    document.removeEventListener("click", startMusicOnce);
+});
