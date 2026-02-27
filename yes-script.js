@@ -61,3 +61,6 @@ function toggleMusic() {
         document.getElementById('music-toggle').textContent = '🔊'
     }
 }
+setTimeout(() => {
+    window.location.href = "final.html";
+}, 5000);
