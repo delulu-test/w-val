@@ -1,3 +1,5 @@
+/* ================= RESET ================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -5,15 +7,14 @@
 }
 
 body {
-    background-color: #FFE4E8;
     font-family: 'Nunito', sans-serif;
+    background-color: #FFE4E8;
     height: 100vh;
 
     display: flex;
-    justify-content: center;   /* giữa ngang */
-    align-items: flex-start;   /* không giữa dọc */
+    justify-content: center;
+    align-items: center;
 
-    padding-top: 40px;
     overflow: hidden;
 
     background-image:
@@ -22,62 +23,63 @@ body {
         radial-gradient(circle at 50% 50%, #fff0f3 0%, transparent 60%);
 }
 
-/* Floating hearts */
+/* ================= FLOATING HEARTS ================= */
+
 .hearts-bg {
     position: fixed;
     inset: 0;
     pointer-events: none;
     z-index: 0;
+    overflow: hidden;
 }
 
 .hearts-bg::before,
 .hearts-bg::after {
-    content: '💕 💗 💖 💝 💓';
+    content: "💕 💗 💖 💝 💓";
     position: absolute;
-    font-size: 1.4rem;
-    opacity: 0.15;
-    animation: floatHearts 12s linear infinite;
-    white-space: nowrap;
     top: 100%;
-    left: 10%;
+    font-size: 1.5rem;
+    opacity: 0.15;
+    white-space: nowrap;
+    animation: floatHearts 12s linear infinite;
 }
 
-.hearts-bg::after {
-    animation-delay: 6s;
-    left: 60%;
-}
+.hearts-bg::before { left: 10%; }
+.hearts-bg::after  { left: 60%; animation-delay: 6s; }
 
 @keyframes floatHearts {
     from { transform: translateY(0); opacity: 0.15; }
-    to { transform: translateY(-110vh); opacity: 0; }
+    to   { transform: translateY(-110vh); opacity: 0; }
 }
+
+/* ================= CONTAINER ================= */
 
 .container {
     position: relative;
     z-index: 1;
     text-align: center;
+    padding: 40px 20px;
     width: 100%;
     max-width: 1100px;
-    padding: 0 20px;
 }
 
-/* ===== TITLES ===== */
+/* ================= HEADINGS ================= */
 
 h1 {
-    font-size: 2.3rem;
-    color: #d63384;
+    font-size: 2.4rem;
     font-weight: 900;
+    color: #d63384;
     margin-bottom: 25px;
-    text-shadow: 2px 2px 0px rgba(214, 51, 132, 0.15);
+    text-shadow: 2px 2px 0 rgba(214, 51, 132, 0.2);
 }
 
-/* ===== BUTTONS ===== */
+/* ================= BUTTONS (YES / NO) ================= */
 
 .buttons {
     display: flex;
     gap: 20px;
     justify-content: center;
-    margin-top: 25px;
+    margin-top: 30px;
 }
 
 #yes-btn {
@@ -86,11 +88,11 @@ h1 {
     border: none;
     border-radius: 16px;
     font-size: 1.4rem;
-    font-weight: 900;
+    font-weight: 800;
     padding: 16px 40px;
     cursor: pointer;
-    transition: 0.2s;
-    box-shadow: 0 6px 18px rgba(76, 175, 80, 0.4);
+    box-shadow: 0 8px 20px rgba(76,175,80,0.4);
+    transition: 0.2s ease;
 }
 
 #yes-btn:hover {
@@ -101,15 +103,14 @@ h1 {
     background: linear-gradient(135deg, #e74c3c, #c0392b);
     color: white;
     border: none;
-    border-radius: 14px;
+    border-radius: 12px;
     font-size: 1rem;
-    font-weight: 700;
-    padding: 10px 26px;
+    padding: 10px 25px;
     cursor: pointer;
-    transition: 0.2s;
+    box-shadow: 0 6px 14px rgba(231,76,60,0.4);
 }
 
-/* ===== FOOD GRID ===== */
+/* ================= DINNER GRID ================= */
 
 .food-grid {
     display: grid;
@@ -124,18 +125,18 @@ h1 {
     padding: 12px;
     cursor: pointer;
     transition: 0.25s ease;
-    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.2);
+    box-shadow: 0 10px 22px rgba(255,105,180,0.2);
 }
 
 .food-card:hover {
-    transform: translateY(-6px) scale(1.05);
+    transform: translateY(-6px) scale(1.04);
 }
 
 .food-card img {
     width: 100%;
-    height: 130px;
+    aspect-ratio: 1/1;
     object-fit: cover;
-    border-radius: 14px;
+    border-radius: 16px;
 }
 
 .food-card p {
@@ -144,15 +145,7 @@ h1 {
     color: #d63384;
 }
 
-#dinner-message,
-#food-message,
-#after-message {
-    margin-top: 20px;
-    font-weight: 800;
-    color: #ff1493;
-}
-
-/* ===== AFTER OPTIONS GRID ===== */
+/* ================= AFTER GRID ================= */
 
 .options {
     display: grid;
@@ -162,22 +155,22 @@ h1 {
 }
 
 .option {
-    background: rgba(255, 240, 245, 0.9);
-    border-radius: 24px;
+    background: rgba(255,240,245,0.9);
+    border-radius: 22px;
     padding: 14px;
     cursor: pointer;
     transition: 0.3s ease;
-    box-shadow: 0 12px 28px rgba(255, 105, 180, 0.18);
+    box-shadow: 0 14px 28px rgba(255,105,180,0.2);
 }
 
 .option:hover {
     transform: translateY(-8px) scale(1.05);
-    box-shadow: 0 18px 40px rgba(255, 105, 180, 0.35);
+    box-shadow: 0 18px 38px rgba(255,105,180,0.35);
 }
 
 .option img {
     width: 100%;
-    height: 170px;   /* fit màn hình */
+    aspect-ratio: 1/1;
     object-fit: cover;
     border-radius: 18px;
 }
@@ -189,16 +182,41 @@ h1 {
     color: #d63384;
 }
 
-/* ===== YES PAGE ===== */
+/* ================= YES PAGE ================= */
 
 .yes-message {
-    font-size: 1.3rem;
-    color: #e91e8c;
-    font-weight: 700;
     margin-top: 20px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #e91e8c;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ================= MESSAGE TEXT ================= */
+
+#dinner-message,
+#after-message {
+    margin-top: 20px;
+    font-weight: 800;
+    color: #ff1493;
+}
+
+/* ================= MUSIC BUTTON ================= */
+
+#music-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: none;
+    font-size: 1.3rem;
+    background: rgba(255,255,255,0.9);
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* ================= RESPONSIVE ================= */
 
 @media (max-width: 900px) {
     .options {
@@ -211,7 +229,7 @@ h1 {
         grid-template-columns: 1fr;
     }
 
-    h1 {
-        font-size: 1.8rem;
+    .buttons {
+        flex-direction: column;
     }
 }
