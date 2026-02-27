@@ -1,4 +1,5 @@
 const lines = [
+    "Can't send a hug, so I made this for you 💕"
     "Hey you, I know you're busy...",
     "But just wanted to drop a little something to boost your morning.",
     "Distance sucks, but thinking about you doesn't. 🤏",
@@ -16,9 +17,16 @@ noBtn.style.display = "none"
 
 function typeLine() {
     if (currentLine < lines.length) {
-        title.textContent = lines[currentLine]
-        currentLine++
-        setTimeout(typeLine, 1800)
+
+        title.style.opacity = 0
+
+        setTimeout(() => {
+            title.textContent = lines[currentLine]
+            title.style.opacity = 1
+            currentLine++
+        }, 400)
+
+        setTimeout(typeLine, 3200)
     } else {
         yesBtn.style.display = "inline-block"
         noBtn.style.display = "inline-block"
