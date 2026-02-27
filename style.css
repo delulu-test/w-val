@@ -354,3 +354,18 @@ h1 {
         grid-template-columns: 1fr;
     }
 }
+.continue-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    background-color: #ffb6d5;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.continue-btn:hover {
+    background-color: #ff69b4;
+}
