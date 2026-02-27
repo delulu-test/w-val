@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>After Dinner 👀</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="hearts-bg"></div>
+
+<div class="container">
+    <h1>Dinner is settled... so what’s next? 👀</h1>
+
+    <div class="food-grid">
+
+        <div class="food-card locked" onclick="wrongAfter()">
+            <img src="images/beach.jpg">
+            <p>Beach walk</p>
+        </div>
+
+        <div class="food-card locked" onclick="wrongAfter()">
+            <img src="images/arcade.jpg">
+            <p>Arcade</p>
+        </div>
+
+        <div class="food-card highlight" onclick="correctAfter()">
+            <img src="images/movie.jpg">
+            <p>Movie night 🎬</p>
+        </div>
+
+    </div>
+
+    <p id="after-message"></p>
+</div>
+
+<script>
+function wrongAfter(){
+    document.getElementById("after-message").textContent =
+    "Hmm… that sounds fun, but I had something else in mind 😌"
+}
+
+function correctAfter(){
+    window.location.href = "yes.html"
+}
+</script>
+
+</body>
+</html>
