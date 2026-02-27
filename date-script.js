@@ -3,15 +3,17 @@ const wrongMessages = [
     "Not this one!",
     "Try again!",
     "Ugh, no!"
-]
-
-function wrongChoice() {
-    const msg = wrongMessages[Math.floor(Math.random() * wrongMessages.length)]
-    document.getElementById("food-message").textContent = msg
-}
+];
 
 function chooseFood(food) {
-    if (food === "4P") {
-        window.location.href = "yes.html"
+
+    if (food === "4P") {   // món đúng
+        window.location.href = "after.html";   // hoặc yes.html nếu bạn muốn
+    } else {
+
+        const msg =
+            wrongMessages[Math.floor(Math.random() * wrongMessages.length)];
+
+        document.getElementById("food-message").textContent = msg;
     }
 }
