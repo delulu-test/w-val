@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You 💕</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="hearts-bg"></div>
+
+<div class="container">
+    <h1 id="final-text"></h1>
+</div>
+
+<audio id="bg-music" autoplay loop>
+    <source src="music/beabadoobee - Glue Song (Lyrics).mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const lines = [
+    "Movie night it is 🎬💕",
+    "But before that...",
+    "Thank you for being so gentle and patient with me.",
+    "Thank you for choosing to stay.",
+    "I hope we get to create more little moments like this.",
+    "More laughter.",
+    "More soft days.",
+    "And more memories together 🤍"
+];
+
+let current = 0;
+const text = document.getElementById("final-text");
+
+function typeLine() {
+    if (current < lines.length) {
+        text.style.opacity = 0;
+
+        setTimeout(() => {
+            text.textContent = lines[current];
+            text.style.opacity = 1;
+            current++;
+        }, 400);
+
+        setTimeout(typeLine, 3000);
+    }
+}
+
+window.onload = typeLine;
+</script>
+
+</body>
+</html>
