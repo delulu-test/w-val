@@ -44,3 +44,13 @@ function handleYesClick() {
 function handleNoClick() {
     window.location.href = "date.html"
 }
+const yesBtn = document.getElementById("yes-btn");
+const noBtn = document.getElementById("no-btn");
+
+yesBtn.addEventListener("click", function() {
+    window.location.href = "date.html";
+});
+
+noBtn.addEventListener("click", function() {
+    alert("Wrong answer 😌");
+});
