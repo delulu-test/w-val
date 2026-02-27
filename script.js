@@ -28,10 +28,10 @@ function typeLine() {
 
         setTimeout(typeLine, 3200);
     } else {
-        yesBtn.style.display = "inline-block";
+       yesBtn.style.display = "inline-block";
         noBtn.style.display = "inline-block";
-        yesBtn.textContent = "Yes";
-        noBtn.textContent = "OK";
+        yesBtn.textContent = "Yes 💕";
+        noBtn.textContent = "No 🙈";
     }
 }
 
