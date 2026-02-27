@@ -46,13 +46,22 @@
 </div>
 
 <script>
+const wrongMessages = [
+    "Nope! ❌",
+    "Not today...",
+    "Try again, maybe? 😏",
+    "My stomach says no."
+];
+
 function wrongDinner(){
-    document.getElementById("dinner-message").textContent =
-    "Hmm… are you sure? Try again 😏"
+    const msg =
+        wrongMessages[Math.floor(Math.random() * wrongMessages.length)];
+
+    document.getElementById("dinner-message").textContent = msg;
 }
 
 function correctDinner(){
-    window.location.href = "after.html"
+    window.location.href = "after.html";
 }
 </script>
 
