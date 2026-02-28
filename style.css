@@ -146,11 +146,6 @@ h1 {
     color: #d63384;
 }
 
-Để làm cho các option này lớn gấp đôi so với kích thước cũ (khoảng 160px - 200px của code trước) và có cảm giác giãn ra thoáng đãng hơn, mình sẽ điều chỉnh lại thông số grid-template-columns, gap và padding.
-
-Dưới đây là bản "Upgrade" giúp các card nhìn cực kỳ nổi bật và sang chảnh:
-
-CSS
 /* ================= AFTER GRID - MEGA UPGRADED ================= */
 
 .options {
