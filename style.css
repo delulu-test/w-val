@@ -146,49 +146,64 @@ h1 {
     color: #d63384;
 }
 
-/* ================= AFTER GRID - UPGRADED ================= */
+Để làm cho các option này lớn gấp đôi so với kích thước cũ (khoảng 160px - 200px của code trước) và có cảm giác giãn ra thoáng đãng hơn, mình sẽ điều chỉnh lại thông số grid-template-columns, gap và padding.
+
+Dưới đây là bản "Upgrade" giúp các card nhìn cực kỳ nổi bật và sang chảnh:
+
+CSS
+/* ================= AFTER GRID - MEGA UPGRADED ================= */
 
 .options {
     display: grid;
-    grid-template-columns: repeat(3, 230px);
+    /* Tăng kích thước mỗi cột lên 320px - 350px (Gấp đôi mức 160px ban đầu) */
+    grid-template-columns: repeat(3, 350px); 
     justify-content: center;
-    gap: 50px;
-    margin-top: 50px;
+    /* Giãn khoảng cách giữa các card rộng hơn */
+    gap: 60px; 
+    margin-top: 60px;
+    padding: 20px;
 }
 
 .option {
     background: linear-gradient(145deg, #fff0f6, #ffe3ec);
-    border-radius: 26px;
-    padding: 18px;
+    /* Bo góc lớn hơn để hợp với kích thước khổng lồ */
+    border-radius: 40px; 
+    /* Tăng padding để nội dung bên trong không bị ngộp */
+    padding: 25px; 
     cursor: pointer;
-    transition: all 0.35s ease;
-    box-shadow: 0 18px 40px rgba(255,105,180,0.18);
+    transition: all 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 25px 50px rgba(255,105,180,0.15);
 }
 
 .option:hover {
-    transform: translateY(-10px) scale(1.06);
-    box-shadow: 0 25px 55px rgba(255,105,180,0.35);
+    /* Bay cao hơn một chút */
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 35px 70px rgba(255,105,180,0.3);
 }
 
-/* Ảnh cao dài */
+/* Ảnh cao dài theo phong cách Poster Phim */
 .option img {
     width: 100%;
-    aspect-ratio: 2 / 3;   /* 👈 cinematic hơn 1/2 */
+    /* Giữ tỉ lệ vàng 2/3 cho ảnh dọc */
+    aspect-ratio: 2 / 3; 
     object-fit: cover;
-    border-radius: 22px;
-    transition: transform 0.4s ease;
+    border-radius: 30px;
+    transition: transform 0.5s ease;
 }
 
 .option:hover img {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 .option p {
-    margin-top: 16px;
+    margin-top: 25px; /* Giãn khoảng cách chữ và ảnh */
     font-weight: 900;
-    font-size: 1.25rem;
+    /* Chữ to hơn để cân xứng với card lớn */
+    font-size: 1.8rem; 
+    text-align: center; /* Căn giữa chữ cho chuyên nghiệp */
     color: #d63384;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+    text-transform: uppercase; /* Làm tiêu đề trông mạnh mẽ hơn */
 }
 /* ================= YES PAGE ================= */
 
