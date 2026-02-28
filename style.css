@@ -9,13 +9,13 @@
 body {
     font-family: 'Nunito', sans-serif;
     background-color: #FFE4E8;
-    height: 100vh;
+    min-height: 100vh;
 
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 
-    overflow: hidden;
+    overflow: auto;
 
     background-image:
         radial-gradient(circle at 15% 85%, #ffb3c1 0%, transparent 40%),
