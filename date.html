@@ -60,9 +60,23 @@ function wrongDinner(){
     document.getElementById("dinner-message").textContent = msg;
 }
 
-function correctDinner(){
-    window.location.href = "after.html";
+    function correctDinner(){
+    const msg = document.getElementById("dinner-message")
+
+    msg.style.opacity = 0
+
+    setTimeout(() => {
+        msg.textContent = "Good choice… you know me too well. You win this round 😌💕"
+        msg.style.opacity = 1
+        msg.style.fontWeight = "900"
+    }, 200)
+
+    // Chờ 2 giây rồi mới chuyển
+    setTimeout(() => {
+        window.location.href = "after.html"
+    }, 2200)
 }
+</script>
 </script>
 
 </body>
