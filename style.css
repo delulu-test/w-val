@@ -257,3 +257,7 @@ h1 {
     transform: scale(1.07);
     box-shadow: 0 15px 35px rgba(255, 20, 147, 0.5);
 }
+#dinner-message {
+    transition: opacity 0.4s ease;
+    font-size: 1.3rem;
+}
