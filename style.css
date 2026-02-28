@@ -104,40 +104,38 @@ h1 {
     box-shadow: 0 6px 14px rgba(231,76,60,0.4);
 }
 
-/* ================= COMMON GRID STYLE (Dùng cho cả Dinner & After) - ĐÃ TĂNG SIZE 1.5x ================= */
+/* ================= COMMON GRID STYLE ================= */
 .food-grid, .after-grid, .options {
     display: grid;
-    /* Chuyển thành 3 cột để card có không gian to hơn */
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 30px; /* Tăng khoảng cách cho thoáng khi card to */
+    /* Cách 1: Dùng 3 cột và nới rộng tối đa không gian mỗi cột */
+    grid-template-columns: repeat(3, minmax(200px, 1fr)); 
+    gap: 30px;
     margin-top: 25px;
     justify-items: center;
-    max-width: 1000px; /* Nới rộng container để chứa 3 card to */
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    /* Quan trọng: Nới container tổng ra rộng hơn nữa để có chỗ cho ảnh to */
+    max-width: 1200px !important; 
+    margin: 0 auto;
 }
 
-/* Thẻ Card dùng chung - To gấp 1.5 lần */
 .food-card, .option {
     background: white;
-    border-radius: 25px; /* Bo góc nhiều hơn nhìn cho sang */
-    padding: 15px;      /* Tăng padding bên trong card */
+    border-radius: 25px;
+    padding: 15px;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.3s ease;
     box-shadow: 0 10px 25px rgba(255,105,180,0.18);
-    width: 100%;
-    /* Tăng từ 180px lên 270px (Gấp 1.5 lần) */
-    max-width: 270px; 
-}
-
-.food-card:hover, .option:hover {
-    transform: translateY(-10px) scale(1.06); /* Hover mạnh hơn một chút */
-    box-shadow: 0 15px 30px rgba(255,105,180,0.35);
+    
+    /* Ép chiều rộng tối thiểu phải đạt được */
+    width: 100%; 
+    min-width: 250px; /* Buộc nó phải to ít nhất 250px */
+    max-width: 320px; /* Và tối đa lên tới 320px */
 }
 
 .food-card img, .option img {
     width: 100%;
-    aspect-ratio: 1/1; 
+    height: auto; /* Để nó tự tính theo width */
+    aspect-ratio: 1/1;
     object-fit: cover;
     border-radius: 18px;
     display: block;
@@ -146,9 +144,8 @@ h1 {
 .food-card p, .option p {
     margin-top: 15px;
     font-weight: 800;
-    font-size: 1.15rem; /* Tăng cỡ chữ để cân xứng với card to */
+    font-size: 1.2rem; /* Chữ cũng phải to lên mới cân */
     color: #d63384;
-    text-align: center;
 }
 
 /* ================= CONTINUE BUTTON ================= */
