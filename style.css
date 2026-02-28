@@ -150,19 +150,19 @@ h1 {
 
 .after-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* responsive */
-    gap: 22px; /* khoảng cách giữa các card */
+    grid-template-columns: repeat(3,, 1fr)); /* responsive */
+    gap: 24px; /* khoảng cách giữa các card */
     margin-top: 30px;
-    padding: 0 10px;
+    padding: 0 12px;
 }
 
 .after-grid .option {
     background: white;
     border-radius: 20px;
-    padding: 10px;
+    padding: 12px;
     cursor: pointer;
     transition: 0.25s ease;
-    box-shadow: 0 6px 18px rgba(255,105,180,0.25);
+    box-shadow: 0 8px 18px rgba(255,105,180,0.25);
 }
 
 .after-grid .option:hover {
@@ -172,6 +172,7 @@ h1 {
 
 .after-grid .option img {
     width: 100%;
+    height: 180px;
     aspect-ratio: 1/1;    /* ảnh vuông giống dinner */
     object-fit: cover;
     border-radius: 16px;
