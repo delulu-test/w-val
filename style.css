@@ -146,38 +146,39 @@ h1 {
     color: #d63384;
 }
 
-/* ================= AFTER GRID (MATCH DINNER) ================= */
+/* ===== AFTER GRID – DINNER STYLE MATCH ===== */
 
-.options {
+.after-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* giống dinner */
-    gap: 22px;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* responsive */
+    gap: 22px; /* khoảng cách giữa các card */
     margin-top: 30px;
+    padding: 0 10px;
 }
 
-.option {
+.after-grid .option {
     background: white;
     border-radius: 20px;
-    padding: 12px;
+    padding: 10px;
     cursor: pointer;
     transition: 0.25s ease;
-    box-shadow: 0 10px 22px rgba(255,105,180,0.2);
+    box-shadow: 0 6px 18px rgba(255,105,180,0.25);
 }
 
-.option:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 14px 30px rgba(255,105,180,0.3);
+.after-grid .option:hover {
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 10px 26px rgba(255,105,180,0.35);
 }
 
-.option img {
+.after-grid .option img {
     width: 100%;
-    aspect-ratio: 1 / 1;   /* vuông giống dinner */
+    aspect-ratio: 1/1;    /* ảnh vuông giống dinner */
     object-fit: cover;
     border-radius: 16px;
 }
 
-.option p {
-    margin-top: 10px;
+.after-grid .option p {
+    margin-top: 8px;
     font-weight: 800;
     font-size: 1rem;
     color: #d63384;
