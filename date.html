@@ -66,4 +66,28 @@ function correctDinner(){
 </script>
 
 </body>
+    <audio id="bg-music" loop>
+    <source src="music/beabadoobee - Glue Song (Lyrics).mp3" type="audio/mpeg">
+</audio>
+    <script>
+const music = document.getElementById("bg-music")
+
+// Khi trang load
+window.addEventListener("load", () => {
+
+    // Lấy thời gian đã lưu
+    const savedTime = localStorage.getItem("musicTime")
+    if (savedTime) {
+        music.currentTime = savedTime
+    }
+
+    // Tự phát nhạc
+    music.play().catch(() => {})
+})
+
+// Lưu thời gian hiện tại liên tục
+music.addEventListener("timeupdate", () => {
+    localStorage.setItem("musicTime", music.currentTime)
+})
+</script>
 </html>
