@@ -216,7 +216,7 @@ h1 {
     box-shadow: 0 6px 16px rgba(0,0,0,0.15);
 }
 
-/* ================= RESPONSIVE ================= */
+/* ================= RESPONSIVE ================= */https://github.com/delulu-test/gnite/blob/main/style.css
 
 @media (max-width: 900px) {
     .options {
@@ -232,4 +232,19 @@ h1 {
     .buttons {
         flex-direction: column;
     }
+}
+.continue-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    background-color: #ffb6d5;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.continue-btn:hover {
+    background-color: #ff69b4;
 }
