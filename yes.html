@@ -32,14 +32,31 @@
     </button>
 
 </div>
-
-    </div> <!-- đóng container đúng chỗ -->
-
+    
+     <!-- 🎵 MUSIC -->
     <audio id="bg-music" loop>
         <source src="music/beabadoobee - Glue Song (Lyrics).mp3" type="audio/mpeg">
     </audio>
 
-    <button id="music-toggle" onclick="toggleMusic()" title="Toggle music">🔊</button>
+    <script>
+    const music = document.getElementById("bg-music")
+
+    window.addEventListener("load", () => {
+        const savedTime = localStorage.getItem("musicTime")
+        if (savedTime) {
+            music.currentTime = savedTime
+        }
+        music.play().catch(() => {})
+    })
+
+    music.addEventListener("timeupdate", () => {
+        localStorage.setItem("musicTime", music.currentTime)
+    })
+
+    document.addEventListener("click", function () {
+        music.play().catch(()=>{})
+    }, { once: true })
+    </script>
 
     <script src="yes-script.js"></script>
 
