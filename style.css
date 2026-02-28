@@ -104,45 +104,49 @@ h1 {
     box-shadow: 0 6px 14px rgba(231,76,60,0.4);
 }
 
-/* ================= COMMON GRID STYLE (Dùng cho cả Dinner & After) ================= */
+/* ================= COMMON GRID STYLE (Dùng cho cả Dinner & After) - ĐÃ TĂNG SIZE 1.5x ================= */
 .food-grid, .after-grid, .options {
     display: grid;
-    /* Ép 4 cột cố định trên màn hình lớn để ảnh nhỏ lại */
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 20px;
+    /* Chuyển thành 3 cột để card có không gian to hơn */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; /* Tăng khoảng cách cho thoáng khi card to */
     margin-top: 25px;
     justify-items: center;
+    max-width: 1000px; /* Nới rộng container để chứa 3 card to */
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Thẻ Card dùng chung */
+/* Thẻ Card dùng chung - To gấp 1.5 lần */
 .food-card, .option {
     background: white;
-    border-radius: 20px;
-    padding: 10px;
+    border-radius: 25px; /* Bo góc nhiều hơn nhìn cho sang */
+    padding: 15px;      /* Tăng padding bên trong card */
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 20px rgba(255,105,180,0.15);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 25px rgba(255,105,180,0.18);
     width: 100%;
-    max-width: 180px; /* Khống chế độ rộng tuyệt đối để ảnh không bị to */
+    /* Tăng từ 180px lên 270px (Gấp 1.5 lần) */
+    max-width: 270px; 
 }
 
 .food-card:hover, .option:hover {
-    transform: translateY(-8px) scale(1.05);
-    box-shadow: 0 12px 25px rgba(255,105,180,0.3);
+    transform: translateY(-10px) scale(1.06); /* Hover mạnh hơn một chút */
+    box-shadow: 0 15px 30px rgba(255,105,180,0.35);
 }
 
 .food-card img, .option img {
     width: 100%;
-    aspect-ratio: 1/1; /* Luôn vuông */
+    aspect-ratio: 1/1; 
     object-fit: cover;
-    border-radius: 15px;
+    border-radius: 18px;
     display: block;
 }
 
 .food-card p, .option p {
-    margin-top: 10px;
+    margin-top: 15px;
     font-weight: 800;
-    font-size: 0.95rem;
+    font-size: 1.15rem; /* Tăng cỡ chữ để cân xứng với card to */
     color: #d63384;
     text-align: center;
 }
