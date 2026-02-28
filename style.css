@@ -262,3 +262,11 @@ h1 {
     transition: opacity 0.4s ease;
     font-size: 1.3rem;
 }
+
+/* ===== FIX RIÊNG CHO AFTER ===== */
+
+.after-page {
+    align-items: flex-start;   /* không căn giữa dọc */
+    padding-top: 60px;
+    min-height: 100vh;
+}
