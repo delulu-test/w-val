@@ -1,6 +1,6 @@
 const wrongMessages = [
     "My stomach says no.",
-    "Not this one!👎",
+    "My stomach says no.",
     "Try again!💔",
     "Error 404: Appetite not found.🚫",
     "Ugh, no!🤧"
