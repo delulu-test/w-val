@@ -104,38 +104,38 @@ h1 {
     box-shadow: 0 6px 14px rgba(231,76,60,0.4);
 }
 
-/* ================= COMMON GRID STYLE (ÉP TO 1.5X) ================= */
+/* ================= COMMON GRID STYLE (ĐÃ FIX TO THẬT SỰ) ================= */
+
 .food-grid, .after-grid, .options {
     display: grid;
-    /* Chỉ để 3 cột trên PC để mỗi cái có không gian to ra */
+    /* CHỈ ĐỂ 3 CỘT: Đây là chìa khóa để card có không gian to ra */
     grid-template-columns: repeat(3, 1fr); 
-    gap: 20px;
-    margin-top: 20px;
+    gap: 30px; 
+    margin-top: 30px;
     justify-items: center;
     width: 100%;
-    /* Nới rộng khung chứa tổng lên */
+    /* Nới rộng container tổng để card có chỗ "phình" ra */
     max-width: 1200px !important; 
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
 }
 
 .food-card, .option {
     background: white;
     border-radius: 20px;
-    padding: 12px;
+    padding: 15px;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 10px 22px rgba(255,105,180,0.2);
     
-    /* Ép độ rộng của Card to lên */
+    /* Tăng kích thước này lên để nó chiếm không gian */
     width: 100%;
-    max-width: 280px; /* Tăng từ 180px lên 280px */
+    max-width: 300px; /* Số cũ là 180px, 300px là gần gấp đôi rồi đó ba */
 }
 
 .food-card img, .option img {
     width: 100%;
-    /* Giới hạn chiều cao ảnh theo màn hình để tránh phải scroll */
-    max-height: 25vh; 
+    /* Khống chế chiều cao ảnh theo màn hình để không phải scroll quá dài */
+    max-height: 28vh; 
     aspect-ratio: 1/1;
     object-fit: cover;
     border-radius: 16px;
@@ -143,31 +143,31 @@ h1 {
 }
 
 .food-card p, .option p {
-    margin-top: 10px;
-    font-weight: 800;
-    font-size: 1.2rem; /* Chữ to hơn cho cân xứng */
+    margin-top: 15px;
+    font-weight: 900;
+    font-size: 1.3rem; /* Chữ cũng phải to cho tương xứng */
     color: #d63384;
     text-align: center;
 }
 
-/* ================= RESPONSIVE FIX ================= */
+/* ================= RESPONSIVE ================= */
+
 @media (max-width: 900px) {
     .food-grid, .after-grid, .options {
-        grid-template-columns: repeat(2, 1fr); /* Tablet hiện 2 cái to */
+        grid-template-columns: repeat(2, 1fr); /* Tablet hiện 2 cái to đùng */
     }
 }
 
 @media (max-width: 500px) {
     .food-grid, .after-grid, .options {
-        grid-template-columns: repeat(2, 1fr); /* Mobile hiện 2 cái nhỏ hơn xíu */
-        gap: 10px;
+        grid-template-columns: repeat(2, 1fr); /* Mobile giữ 2 cột nhưng thu nhỏ xíu cho vừa máy */
+        gap: 12px;
     }
     .food-card, .option {
-        max-width: 170px; 
+        max-width: 160px; 
     }
     h1 { font-size: 1.6rem; }
 }
-
 /* ================= CONTINUE BUTTON ================= */
 .continue-btn {
     margin-top: 35px;
