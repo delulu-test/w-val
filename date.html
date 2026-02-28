@@ -58,33 +58,41 @@ const wrongMessages = [
 ]
 
 function wrongDinner() {
-            const msg = document.getElementById("dinner-message");
-            msg.style.transition = "none";
-            msg.style.opacity = 0;
-            void msg.offsetWidth; 
+    const msg = document.getElementById("dinner-message");
+    
+    // 1. Hiện ra ngay lập tức, không để transition 0.5s cho đỡ cảm giác mờ
+    msg.style.transition = "none"; 
+    msg.style.opacity = 1;
 
-            msg.textContent = wrongMessages[Math.floor(Math.random() * wrongMessages.length)];
-            msg.style.color = "#ff9ab7";
-            msg.style.transition = "opacity 0.5s ease";
-            msg.style.opacity = 1;
+    msg.textContent = wrongMessages[Math.floor(Math.random() * wrongMessages.length)];
+    
+    // 2. Thay bằng màu ĐỎ ĐẬM hoặc HỒNG ĐẬM (Đừng dùng màu nhạt)
+    msg.style.color = "#d63384"; // Màu hồng đậm cực sắc nét
+    // Hoặc nếu muốn đỏ hẳn thì: msg.style.color = "#ff4d4d";
 
-            // Thêm hiệu ứng rung
-            msg.style.animation = "none";
-            void msg.offsetWidth;
-            msg.style.animation = "shake 0.7s ease-in-out";
-        }
+    // 3. Cho chữ to lên tí nữa cho dễ đọc
+    msg.style.fontSize = "1.5rem";
 
-        function correctDinner() {
-            const msg = document.getElementById("dinner-message");
-            msg.textContent = "Good choice… you know me too well. 😌💕";
-            msg.style.color = "#ff9ac4";
-            msg.style.opacity = 1;
-            msg.style.fontWeight = "900";
+    // Thêm hiệu ứng rung (giữ nguyên)
+    msg.style.animation = "none";
+    void msg.offsetWidth;
+    msg.style.animation = "shake 0.4s ease-in-out"; 
+}
 
-            setTimeout(() => {
-                window.location.href = "after.html";
-            }, 2000);
-        }
+function correctDinner() {
+    const msg = document.getElementById("dinner-message");
+    msg.textContent = "Good choice… you know me too well. 😌💕";
+    
+    // Màu xanh lá đậm để phân biệt với lúc sai
+    msg.style.color = "#d63384"; 
+    msg.style.opacity = 1;
+    msg.style.fontSize = "1.5rem";
+    msg.style.fontWeight = "900";
+
+    setTimeout(() => {
+        window.location.href = "after.html";
+    }, 2000);
+}
     </script>
 
     <audio id="bg-music" loop>
