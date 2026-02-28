@@ -10,11 +10,11 @@
 <body>
 <div class="hearts-bg"></div>
 
-<div class="container">
+<div class="container" style="padding-top: 20px; margin-top: 10px;">
     <h1>First… where are we having dinner? 😌</h1>
     
-<div style="min-height: 60px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
-            <p id="dinner-message" style="font-weight: 800; font-size: 1.3rem; color: #ff1493; transition: opacity 0.3s ease;"></p>
+<div style="height: 50px; margin-bottom: 10px; display: flex; align-items: center; justify-content: center;">
+            <p id="dinner-message" style="font-weight: 800; font-size: 1.3rem; color: #ff1493; margin: 0;"></p>
         </div>
     
     <div class="food-grid">
@@ -57,67 +57,50 @@ const wrongMessages = [
     "Ugh, no!🤧"
 ]
 
-function wrongDinner(){
-    const msg = document.getElementById("dinner-message")
+function wrongDinner() {
+            const msg = document.getElementById("dinner-message");
+            msg.style.transition = "none";
+            msg.style.opacity = 0;
+            void msg.offsetWidth; 
 
-    // Reset ngay lập tức để không bị khựng
-    msg.style.transition = "none"
-    msg.style.opacity = 0
+            msg.textContent = wrongMessages[Math.floor(Math.random() * wrongMessages.length)];
+            msg.style.color = "#ff4d4d";
+            msg.style.transition = "opacity 0.3s ease";
+            msg.style.opacity = 1;
 
-    // Force reflow để browser reset animation
-    void msg.offsetWidth
+            // Thêm hiệu ứng rung
+            msg.style.animation = "none";
+            void msg.offsetWidth;
+            msg.style.animation = "shake 0.3s ease-in-out";
+        }
 
-    const randomText = wrongMessages[Math.floor(Math.random() * wrongMessages.length)]
+        function correctDinner() {
+            const msg = document.getElementById("dinner-message");
+            msg.textContent = "Good choice… you know me too well. 😌💕";
+            msg.style.color = "#4CAF50";
+            msg.style.opacity = 1;
+            msg.style.fontWeight = "900";
 
-    msg.textContent = randomText
+            setTimeout(() => {
+                window.location.href = "after.html";
+            }, 2000);
+        }
+    </script>
 
-    // Bật lại transition
-    msg.style.transition = "opacity 0.3s ease"
-    msg.style.opacity = 1
-}
-
-    function correctDinner(){
-    const msg = document.getElementById("dinner-message")
-
-    msg.style.opacity = 0
-
-    setTimeout(() => {
-        msg.textContent = "Good choice… you know me too well. You win this round 😌💕"
-        msg.style.opacity = 1
-        msg.style.fontWeight = "900"
-    }, 200)
-
-    // Chờ 2 giây rồi mới chuyển
-    setTimeout(() => {
-        window.location.href = "after.html"
-    }, 2200)
-}
-</script>
-</script>
-
-</body>
     <audio id="bg-music" loop>
-    <source src="music/beabadoobee - Glue Song (Lyrics).mp3" type="audio/mpeg">
-</audio>
+        <source src="music/beabadoobee - Glue Song (Lyrics).mp3" type="audio/mpeg">
+    </audio>
+
     <script>
-const music = document.getElementById("bg-music")
-
-// Khi trang load
-window.addEventListener("load", () => {
-
-    // Lấy thời gian đã lưu
-    const savedTime = localStorage.getItem("musicTime")
-    if (savedTime) {
-        music.currentTime = savedTime
-    }
-
-    // Tự phát nhạc
-    music.play().catch(() => {})
-})
-
-// Lưu thời gian hiện tại liên tục
-music.addEventListener("timeupdate", () => {
-    localStorage.setItem("musicTime", music.currentTime)
-})
-</script>
+        const music = document.getElementById("bg-music");
+        window.addEventListener("load", () => {
+            const savedTime = localStorage.getItem("musicTime");
+            if (savedTime) music.currentTime = savedTime;
+            music.play().catch(() => {});
+        });
+        music.addEventListener("timeupdate", () => {
+            localStorage.setItem("musicTime", music.currentTime);
+        });
+    </script>
+</body>
 </html>
