@@ -146,60 +146,51 @@ h1 {
     color: #d63384;
 }
 
-/* ================= AFTER GRID - MEGA UPGRADED ================= */
+/* ================= AFTER GRID – RESPONSIVE ================= */
 
 .options {
     display: grid;
-    /* Tăng kích thước mỗi cột lên 320px - 350px (Gấp đôi mức 160px ban đầu) */
-    grid-template-columns: repeat(3, 350px); 
-    justify-content: center;
-    /* Giãn khoảng cách giữa các card rộng hơn */
-    gap: 60px; 
-    margin-top: 60px;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* auto-fit để co/gấp hàng */
+    gap: 24px; /* khoảng cách giữa các item */
+    margin-top: 30px;
+    padding: 0 20px; /* thêm padding 2 bên để không dính sát lề */
 }
 
 .option {
-    background: linear-gradient(145deg, #fff0f6, #ffe3ec);
-    /* Bo góc lớn hơn để hợp với kích thước khổng lồ */
-    border-radius: 40px; 
-    /* Tăng padding để nội dung bên trong không bị ngộp */
-    padding: 25px; 
+    background: rgba(255,240,245,0.9);
+    border-radius: 22px;
+    padding: 14px;
     cursor: pointer;
-    transition: all 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 25px 50px rgba(255,105,180,0.15);
+    transition: 0.28s ease;
+    box-shadow: 0 12px 26px rgba(255,105,180,0.2);
 }
 
 .option:hover {
-    /* Bay cao hơn một chút */
-    transform: translateY(-15px) scale(1.05);
-    box-shadow: 0 35px 70px rgba(255,105,180,0.3);
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 16px 36px rgba(255,105,180,0.3);
 }
 
-/* Ảnh cao dài theo phong cách Poster Phim */
+/* ảnh dài hơn dinner nhưng không quá to */
 .option img {
     width: 100%;
-    /* Giữ tỉ lệ vàng 2/3 cho ảnh dọc */
-    aspect-ratio: 2 / 3; 
+    aspect-ratio: 3 / 4; /* cao hơn vuông nhưng vẫn gọn */
     object-fit: cover;
-    border-radius: 30px;
-    transition: transform 0.5s ease;
+    border-radius: 18px;
+    transition: transform 0.3s ease;
 }
 
 .option:hover img {
-    transform: scale(1.03);
+    transform: scale(1.02);
 }
 
 .option p {
-    margin-top: 25px; /* Giãn khoảng cách chữ và ảnh */
+    margin-top: 12px;
     font-weight: 900;
-    /* Chữ to hơn để cân xứng với card lớn */
-    font-size: 1.8rem; 
-    text-align: center; /* Căn giữa chữ cho chuyên nghiệp */
+    font-size: 1.1rem;
     color: #d63384;
-    letter-spacing: 1px;
-    text-transform: uppercase; /* Làm tiêu đề trông mạnh mẽ hơn */
+    text-align: center;
 }
+
 /* ================= YES PAGE ================= */
 
 .yes-message {
