@@ -51,13 +51,25 @@ const wrongMessages = [
     "Not today...",
     "Try again, maybe? 😏",
     "My stomach says no."
-];
+]
 
 function wrongDinner(){
-    const msg =
-        wrongMessages[Math.floor(Math.random() * wrongMessages.length)];
+    const msg = document.getElementById("food-message")
 
-    document.getElementById("dinner-message").textContent = msg;
+    // Reset ngay lập tức để không bị khựng
+    msg.style.transition = "none"
+    msg.style.opacity = 0
+
+    // Force reflow để browser reset animation
+    void msg.offsetWidth
+
+    const randomText = wrongMessages[Math.floor(Math.random() * wrongMessages.length)]
+
+    msg.textContent = randomText
+
+    // Bật lại transition
+    msg.style.transition = "opacity 0.3s ease"
+    msg.style.opacity = 1
 }
 
     function correctDinner(){
