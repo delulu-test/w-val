@@ -8,9 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<audio id="bg-music" loop>
-    <source src="music/beabadoobee - Glue Song (Lyrics).mp3" type="audio/mpeg">
-</audio>
     <body>
     <div class="hearts-bg"></div>
 
@@ -28,11 +25,31 @@
         <div id="tease-toast"></div>
     </div>
 
-    <audio id="bg-music" loop autoplay muted>
+    <!-- 🎵 MUSIC (CHỈ 1 CÁI DUY NHẤT) -->
+    <audio id="bg-music" loop>
         <source src="music/beabadoobee - Glue Song (Lyrics).mp3" type="audio/mpeg">
     </audio>
 
-    <button id="music-toggle" onclick="toggleMusic()" title="Toggle music">🔊</button>
+    <script>
+    const music = document.getElementById("bg-music")
+
+    window.addEventListener("load", () => {
+        const savedTime = localStorage.getItem("musicTime")
+        if (savedTime) {
+            music.currentTime = savedTime
+        }
+        music.play().catch(() => {})
+    })
+
+    music.addEventListener("timeupdate", () => {
+        localStorage.setItem("musicTime", music.currentTime)
+    })
+
+    // nếu browser chặn autoplay
+    document.addEventListener("click", function () {
+        music.play().catch(()=>{})
+    }, { once: true })
+    </script>
 
     <script src="script.js"></script>
 </body>
