@@ -251,3 +251,35 @@ h1 {
     75% { transform: translateX(-5px); }
     100% { transform: translateX(0); }
 }
+.vertical-photo {
+    position: fixed;
+    bottom: -200px; /* bắt đầu từ dưới màn hình */
+    left: 50%;
+    transform: translateX(-50%);
+    animation: slideUpFade 6s ease-in-out forwards;
+}
+
+.vertical-photo img {
+    width: 200px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+@keyframes slideUpFade {
+    0% {
+        bottom: -200px;
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    70% {
+        bottom: 50%;
+        transform: translate(-50%, 50%);
+        opacity: 1;
+    }
+    100% {
+        bottom: 70%;
+        opacity: 0;
+    }
+}
