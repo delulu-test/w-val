@@ -22,17 +22,18 @@ const music = document.getElementById("bg-music")
 
 // Khi trang load
 window.addEventListener("load", () => {
+    const savedTime = localStorage.getItem("musicTime");
+    if (savedTime) music.currentTime = savedTime;
+});
 
-    // Lấy thời gian đã lưu
-    const savedTime = localStorage.getItem("musicTime")
-    if (savedTime) {
-        music.currentTime = savedTime
-    }
+// 👇 CHO MOBILE
+document.addEventListener("click", function () {
+    music.play().catch(()=>{});
+}, { once: true });
 
-    // Tự phát nhạc
-    music.play().catch(() => {})
-})
-
+music.addEventListener("timeupdate", () => {
+    localStorage.setItem("musicTime", music.currentTime);
+});
 // Lưu thời gian hiện tại liên tục
 music.addEventListener("timeupdate", () => {
     localStorage.setItem("musicTime", music.currentTime)
