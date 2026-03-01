@@ -76,31 +76,39 @@ function selectOption(choice){
 </script>
 
 </body>
-   <audio id="bg-music" autoplay loop>
+   <audio id="bg-music" loop preload="auto">
     <source src="music/beabadoobee - Glue Song (Lyrics).mp3" type="audio/mpeg">
 </audio>
 <script>
 const music = document.getElementById("bg-music");
 const offsetTime = 1; // Lùi lại 1s để nhạc nối tiếp mượt hơn
     
-// Khi trang load
-window.addEventListener("load", () => {
+// 1. NHẢY GIÂY NGAY LẬP TỨC (Không đợi trang load xong)
     const savedTime = localStorage.getItem("musicTime");
-    if (savedTime) music.currentTime = savedTime;
-});
+    if (savedTime) {
+        music.currentTime = parseFloat(savedTime) - offsetTime;
+    }
 
-// 👇 CHO MOBILE
-document.addEventListener("click", function () {
-    music.play().catch(()=>{});
-}, { once: true });
+    // 2. Hàm cố gắng phát nhạc
+    function playMusic() {
+        music.play().catch(() => {
+            console.log("Chờ tương tác để phát nhạc...");
+        });
+    }
 
-music.addEventListener("timeupdate", () => {
-    localStorage.setItem("musicTime", music.currentTime);
-});
-// Lưu thời gian hiện tại liên tục
-music.addEventListener("timeupdate", () => {
-    localStorage.setItem("musicTime", music.currentTime)
-})
-</script>
+    // Thử phát ngay khi script chạy
+    playMusic();
+
+    // 3. Dự phòng cho Mobile: Chạm bất cứ đâu nhạc nối tiếp ngay
+    document.addEventListener("click", playMusic, { once: true });
+    document.addEventListener("touchstart", playMusic, { once: true });
+
+    // 4. Lưu thời gian liên tục (Dùng setInterval nhạy hơn timeupdate)
+    setInterval(() => {
+        if (!music.paused) {
+            localStorage.setItem("musicTime", music.currentTime);
+        }
+    }, 500);
+    </script>
 </body>
 </html>
