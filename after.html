@@ -77,25 +77,40 @@ function selectOption(choice){
 
 </body>
     <audio id="bg-music" loop>
-    <source src="music/beabadoobee - Glue Song (Lyrics).mp3" type="audio/mpeg">
-</audio>
+        <source src="music/beabadoobee - Glue Song (Lyrics).mp3" type="audio/mpeg">
+    </audio>
+
     <script>
-const music = document.getElementById("bg-music")
+    const music = document.getElementById("bg-music");
+const offsetTime = 1; // Lùi lại 1s để nhạc nối tiếp mượt hơn
+        
+    // 1. Khôi phục thời gian đã chơi từ localStorage
+    window.addEventListener("load", () => {
+        const savedTime = localStorage.getItem("musicTime");
+        if (savedTime) {
+            music.currentTime = parseFloat(savedTime);
+        }
+        
+        // Thử tự động phát ngay khi load (thường sẽ bị trình duyệt chặn)
+        music.play().catch(() => {
+            console.log("Autoplay bị chặn, chờ tương tác người dùng...");
+        });
+    });
 
-// Khi trang load
-window.addEventListener("load", () => {
-    const savedTime = localStorage.getItem("musicTime");
-    if (savedTime) music.currentTime = savedTime;
-});
+    // 2. Ép phát nhạc ngay khi người dùng chạm/click bất cứ đâu trên màn hình
+    const playMusic = () => {
+        music.play();
+        // Sau khi đã phát thành công, gỡ bỏ event để tránh lãng phí tài nguyên
+        document.removeEventListener("click", playMusic);
+        document.removeEventListener("touchstart", playMusic);
+    };
 
-// 👇 CHO MOBILE
-document.addEventListener("click", function () {
-    music.play().catch(()=>{});
-}, { once: true });
+    document.addEventListener("click", playMusic);
+    document.addEventListener("touchstart", playMusic); // Quan trọng cho Mobile
 
-music.addEventListener("timeupdate", () => {
-    localStorage.setItem("musicTime", music.currentTime);
-});
-
+    // 3. Lưu lại thời gian liên tục để sang trang sau nhạc không bị phát lại từ đầu
+    music.addEventListener("timeupdate", () => {
+        localStorage.setItem("musicTime", music.currentTime);
+    });
 </script>
 </html>
