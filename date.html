@@ -102,10 +102,18 @@ function correctDinner() {
     <script>
         const music = document.getElementById("bg-music");
         window.addEventListener("load", () => {
-            const savedTime = localStorage.getItem("musicTime");
-            if (savedTime) music.currentTime = savedTime;
-            music.play().catch(() => {});
-        });
+    const savedTime = localStorage.getItem("musicTime");
+    if (savedTime) music.currentTime = savedTime;
+});
+
+// 👇 CHO MOBILE
+document.addEventListener("click", function () {
+    music.play().catch(()=>{});
+}, { once: true });
+
+music.addEventListener("timeupdate", () => {
+    localStorage.setItem("musicTime", music.currentTime);
+});
         music.addEventListener("timeupdate", () => {
             localStorage.setItem("musicTime", music.currentTime);
         });
