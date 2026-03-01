@@ -81,7 +81,8 @@ function selectOption(choice){
 </audio>
 <script>
 const music = document.getElementById("bg-music")
-
+const offsetTime = 1; // Lùi lại 1s để nhạc nối tiếp mượt hơn
+    
 // Khi trang load
 window.addEventListener("load", () => {
     const savedTime = localStorage.getItem("musicTime");
