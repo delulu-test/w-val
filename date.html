@@ -101,7 +101,8 @@ function correctDinner() {
 
     <script>
     const music = document.getElementById("bg-music");
-
+const offsetTime = 0.8; // Lùi lại 0.8s để nhạc nối tiếp mượt hơn
+        
     // 1. Khôi phục thời gian đã chơi từ localStorage
     window.addEventListener("load", () => {
         const savedTime = localStorage.getItem("musicTime");
