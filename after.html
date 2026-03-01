@@ -76,43 +76,56 @@ function selectOption(choice){
 </script>
 
 </body>
-    <audio id="bg-music" loop>
+    <audio id="bg-music" loop preload="auto" autoplay>
         <source src="music/beabadoobee - Glue Song (Lyrics).mp3" type="audio/mpeg">
     </audio>
 
     <script>
     const music = document.getElementById("bg-music");
-        
-    // 1. Khôi phục thời gian ngay lập tức
+    const offsetTime = 0.8; // Lùi lại 0.8s để cảm giác nhạc nối tiếp mượt hơn
+
+    // Hàm thực hiện việc phát nhạc
+    function handlePlay() {
+        // Lấy thời gian từ bộ nhớ
         const savedTime = localStorage.getItem("musicTime");
         if (savedTime) {
             let startTime = parseFloat(savedTime) - offsetTime;
             music.currentTime = startTime > 0 ? startTime : 0;
         }
 
-        // 2. Hàm phát nhạc với cơ chế "Force"
-        function forcePlay() {
-            music.play().then(() => {
-                console.log("Nhạc đã tự động nối tiếp!");
-                // Nếu phát thành công thì gỡ bỏ các sự kiện chờ
-                document.removeEventListener("click", forcePlay);
-                document.removeEventListener("touchstart", forcePlay);
-            }).catch((e) => {
-                console.log("Autoplay vẫn bị chặn, chờ tương tác người dùng.");
+        // Cố gắng phát nhạc
+        const playPromise = music.play();
+
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                console.log("Nhạc đã tự động nối tiếp thành công!");
+            }).catch(error => {
+                console.log("Trình duyệt vẫn chặn, đợi click.");
+                // Nếu bị chặn, đợi click đầu tiên sẽ phát ngay
+                document.addEventListener("click", () => {
+                    music.play();
+                }, { once: true });
             });
         }
+    }
 
-        // 3. Chạy ngay khi load trang
-        window.addEventListener("DOMContentLoaded", forcePlay);
-        window.addEventListener("load", forcePlay);
+    // Chạy ngay khi file JS được đọc
+    handlePlay();
 
-        // 4. Dự phòng: Bất kể hành động nào cũng kích hoạt lại
-        document.addEventListener("click", forcePlay, { once: true });
-        document.addEventListener("touchstart", forcePlay, { once: true });
+    // Dự phòng khi load xong hoàn toàn
+    window.addEventListener("load", handlePlay);
 
-        // 5. Lưu thời gian liên tục
-        music.addEventListener("timeupdate", () => {
+    // Lưu thời gian liên tục (độ trễ 100ms để chính xác nhất)
+    setInterval(() => {
+        if (!music.paused) {
             localStorage.setItem("musicTime", music.currentTime);
-        });
+        }
+    }, 100);
+
+    // Thêm listener cho mobile (nếu user chạm vào bất kỳ card nào cũng sẽ kích hoạt)
+    document.addEventListener("touchstart", () => {
+        if (music.paused) music.play();
+    }, { once: true });
     </script>
+</body>
 </html>
