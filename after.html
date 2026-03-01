@@ -84,31 +84,28 @@ function selectOption(choice){
     const music = document.getElementById("bg-music");
 const offsetTime = 1; // Lùi lại 1s để nhạc nối tiếp mượt hơn
         
-    // 1. Khôi phục thời gian đã chơi từ localStorage
-    window.addEventListener("load", () => {
-        const savedTime = localStorage.getItem("musicTime");
-        if (savedTime) {
-            music.currentTime = parseFloat(savedTime);
-        }
-        
-        // Thử tự động phát ngay khi load (thường sẽ bị trình duyệt chặn)
+    // 1. Khôi phục vị trí nhạc ngay khi trang vừa nạp
+    const savedTime = localStorage.getItem("musicTime");
+    if (savedTime) {
+        let startTime = parseFloat(savedTime) - offsetTime;
+        music.currentTime = startTime > 0 ? startTime : 0;
+    }
+
+    // 2. Hàm cố gắng phát nhạc
+    function tryPlayMusic() {
         music.play().catch(() => {
-            console.log("Autoplay bị chặn, chờ tương tác người dùng...");
+            console.log("Trình duyệt đợi bạn chạm vào màn hình để tiếp tục nhạc...");
         });
-    });
+    }
 
-    // 2. Ép phát nhạc ngay khi người dùng chạm/click bất cứ đâu trên màn hình
-    const playMusic = () => {
-        music.play();
-        // Sau khi đã phát thành công, gỡ bỏ event để tránh lãng phí tài nguyên
-        document.removeEventListener("click", playMusic);
-        document.removeEventListener("touchstart", playMusic);
-    };
+    // Tự động phát ngay khi load (Nếu trang trước đã được click, trang này sẽ tự hát)
+    window.addEventListener("load", tryPlayMusic);
 
-    document.addEventListener("click", playMusic);
-    document.addEventListener("touchstart", playMusic); // Quan trọng cho Mobile
+    // Dự phòng nếu bị chặn: Click/Chạm bất cứ đâu để kích hoạt
+    document.addEventListener("click", tryPlayMusic, { once: true });
+    document.addEventListener("touchstart", tryPlayMusic, { once: true });
 
-    // 3. Lưu lại thời gian liên tục để sang trang sau nhạc không bị phát lại từ đầu
+    // 3. Liên tục cập nhật vị trí nhạc vào bộ nhớ
     music.addEventListener("timeupdate", () => {
         localStorage.setItem("musicTime", music.currentTime);
     });
