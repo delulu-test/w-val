@@ -38,31 +38,35 @@
         <source src="music/beabadoobee - Glue Song (Lyrics).mp3" type="audio/mpeg">
     </audio>
 
-    <script>
-    const music = document.getElementById("bg-music")
-
-   window.addEventListener("load", () => {
+   <script>
+    const music = document.getElementById("bg-music");
+       
+    // 1. Khôi phục vị trí nhạc ngay khi trang vừa nạp
     const savedTime = localStorage.getItem("musicTime");
-    if (savedTime) music.currentTime = savedTime;
-});
+    if (savedTime) {
+        let startTime = parseFloat(savedTime) - offsetTime;
+        music.currentTime = startTime > 0 ? startTime : 0;
+    }
 
-// 👇 CHO MOBILE
-document.addEventListener("click", function () {
-    music.play().catch(()=>{});
-}, { once: true });
+    // 2. Hàm cố gắng phát nhạc
+    function tryPlayMusic() {
+        music.play().catch(() => {
+            console.log("Trình duyệt đợi bạn chạm vào màn hình để tiếp tục nhạc...");
+        });
+    }
 
-music.addEventListener("timeupdate", () => {
-    localStorage.setItem("musicTime", music.currentTime);
-});
+    // Tự động phát ngay khi load (Nếu trang trước đã được click, trang này sẽ tự hát)
+    window.addEventListener("load", tryPlayMusic);
 
+    // Dự phòng nếu bị chặn: Click/Chạm bất cứ đâu để kích hoạt
+    document.addEventListener("click", tryPlayMusic, { once: true });
+    document.addEventListener("touchstart", tryPlayMusic, { once: true });
+
+    // 3. Liên tục cập nhật vị trí nhạc vào bộ nhớ
     music.addEventListener("timeupdate", () => {
-        localStorage.setItem("musicTime", music.currentTime)
-    })
-
-    document.addEventListener("click", function () {
-        music.play().catch(()=>{})
-    }, { once: true })
-    </script>
+        localStorage.setItem("musicTime", music.currentTime);
+    });
+</script>
 
     <script src="yes-script.js"></script>
 
