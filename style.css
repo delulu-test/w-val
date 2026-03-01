@@ -253,33 +253,55 @@ h1 {
 }
 .vertical-photo {
     position: fixed;
-    bottom: -200px; /* bắt đầu từ dưới màn hình */
+    bottom: -250px;
     left: 50%;
     transform: translateX(-50%);
-    animation: slideUpFade 6s ease-in-out forwards;
+    opacity: 0;
+    z-index: 2;
 }
 
 .vertical-photo img {
-    width: 200px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    width: 220px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
 }
 
+/* Animation chính */
 @keyframes slideUpFade {
     0% {
-        bottom: -200px;
+        bottom: -250px;
         opacity: 0;
     }
-    20% {
+    15% {
         opacity: 1;
     }
-    70% {
-        bottom: 50%;
-        transform: translate(-50%, 50%);
+    60% {
+        bottom: 45%;
         opacity: 1;
     }
     100% {
-        bottom: 70%;
+        bottom: 65%;
         opacity: 0;
     }
+}
+
+/* Delay từng ảnh */
+.photo1 {
+    animation: slideUpFade 6s ease-in-out forwards;
+    animation-delay: 2s;
+}
+
+.photo2 {
+    animation: slideUpFade 6s ease-in-out forwards;
+    animation-delay: 9s;
+}
+
+.photo3 {
+    animation: slideUpFade 6s ease-in-out forwards;
+    animation-delay: 16s;
+}
+
+.photo4 {
+    animation: slideUpFade 6s ease-in-out forwards;
+    animation-delay: 23s;
 }
