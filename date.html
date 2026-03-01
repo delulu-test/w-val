@@ -100,29 +100,36 @@ function correctDinner() {
     </audio>
 
     <script>
-        const music = document.getElementById("bg-music");
-        window.addEventListener("load", () => {
-    const savedTime = localStorage.getItem("musicTime");
-    if (savedTime) music.currentTime = savedTime;
-});
+    const music = document.getElementById("bg-music");
 
- // nếu browser chặn autoplay
-    document.addEventListener("click", function () {
-        music.play().catch(()=>{})
-    }, { once: true })
-    </script>
-    
-        // 👇 CHO MOBILE
-document.addEventListener("click", function () {
-    music.play().catch(()=>{});
-}, { once: true });
-
-music.addEventListener("timeupdate", () => {
-    localStorage.setItem("musicTime", music.currentTime);
-});
-        music.addEventListener("timeupdate", () => {
-            localStorage.setItem("musicTime", music.currentTime);
+    // 1. Khôi phục thời gian đã chơi từ localStorage
+    window.addEventListener("load", () => {
+        const savedTime = localStorage.getItem("musicTime");
+        if (savedTime) {
+            music.currentTime = parseFloat(savedTime);
+        }
+        
+        // Thử tự động phát ngay khi load (thường sẽ bị trình duyệt chặn)
+        music.play().catch(() => {
+            console.log("Autoplay bị chặn, chờ tương tác người dùng...");
         });
-    </script>
+    });
+
+    // 2. Ép phát nhạc ngay khi người dùng chạm/click bất cứ đâu trên màn hình
+    const playMusic = () => {
+        music.play();
+        // Sau khi đã phát thành công, gỡ bỏ event để tránh lãng phí tài nguyên
+        document.removeEventListener("click", playMusic);
+        document.removeEventListener("touchstart", playMusic);
+    };
+
+    document.addEventListener("click", playMusic);
+    document.addEventListener("touchstart", playMusic); // Quan trọng cho Mobile
+
+    // 3. Lưu lại thời gian liên tục để sang trang sau nhạc không bị phát lại từ đầu
+    music.addEventListener("timeupdate", () => {
+        localStorage.setItem("musicTime", music.currentTime);
+    });
+</script>
 </body>
 </html>
