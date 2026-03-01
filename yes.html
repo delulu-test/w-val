@@ -34,38 +34,30 @@
 </div>
     
      <!-- 🎵 MUSIC -->
-    <audio id="bg-music" loop>
-        <source src="music/beabadoobee - Glue Song (Lyrics).mp3" type="audio/mpeg">
-    </audio>
+    <audio id="bg-music" autoplay loop>
+    <source src="music/beabadoobee - Glue Song (Lyrics).mp3" type="audio/mpeg">
+</audio>
+<script>
+const music = document.getElementById("bg-music")
 
-   <script>
-    const music = document.getElementById("bg-music");
-       
-    // 1. Khôi phục vị trí nhạc ngay khi trang vừa nạp
+// Khi trang load
+window.addEventListener("load", () => {
     const savedTime = localStorage.getItem("musicTime");
-    if (savedTime) {
-        let startTime = parseFloat(savedTime) - offsetTime;
-        music.currentTime = startTime > 0 ? startTime : 0;
-    }
+    if (savedTime) music.currentTime = savedTime;
+});
 
-    // 2. Hàm cố gắng phát nhạc
-    function tryPlayMusic() {
-        music.play().catch(() => {
-            console.log("Trình duyệt đợi bạn chạm vào màn hình để tiếp tục nhạc...");
-        });
-    }
+// 👇 CHO MOBILE
+document.addEventListener("click", function () {
+    music.play().catch(()=>{});
+}, { once: true });
 
-    // Tự động phát ngay khi load (Nếu trang trước đã được click, trang này sẽ tự hát)
-    window.addEventListener("load", tryPlayMusic);
-
-    // Dự phòng nếu bị chặn: Click/Chạm bất cứ đâu để kích hoạt
-    document.addEventListener("click", tryPlayMusic, { once: true });
-    document.addEventListener("touchstart", tryPlayMusic, { once: true });
-
-    // 3. Liên tục cập nhật vị trí nhạc vào bộ nhớ
-    music.addEventListener("timeupdate", () => {
-        localStorage.setItem("musicTime", music.currentTime);
-    });
+music.addEventListener("timeupdate", () => {
+    localStorage.setItem("musicTime", music.currentTime);
+});
+// Lưu thời gian hiện tại liên tục
+music.addEventListener("timeupdate", () => {
+    localStorage.setItem("musicTime", music.currentTime)
+})
 </script>
 
     <script src="yes-script.js"></script>
