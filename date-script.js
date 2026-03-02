@@ -3,7 +3,7 @@ const wrongMessages = [
     "My stomach says no.",
     "Try again!💔",
     "Error 404: Appetite not found.🚫",
-    "Ugh, no!🤧"
+    "Ugh, no!"
 ];
 
 function chooseFood(food) {
