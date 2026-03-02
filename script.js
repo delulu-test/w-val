@@ -42,7 +42,7 @@ yesBtn.addEventListener("click", function() {
 });
 
 noBtn.addEventListener("click", function() {
-    alert("Wrong answer 😌");
+    alert("You dare?☠");
 });
 document.addEventListener("click", function startMusicOnce() {
     const music = document.getElementById("bg-music");
