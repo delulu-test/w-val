@@ -33,18 +33,36 @@
 <h1 id="final-text"></h1>
 </div>
 
-<audio id="bg-music" autoplay loop>
+<audio id="bg-music" loop preload="auto">
     <source src="music/beabadoobee - Glue Song (Lyrics).mp3" type="audio/mpeg">
 </audio>
 <script>
 const music = document.getElementById("bg-music");
-const offsetTime = 1; // Lùi lại 1s để nhạc nối tiếp mượt hơn
+const offsetTime = 0.8; 
 
-// Khi trang load
-window.addEventListener("load", () => {
-    const savedTime = localStorage.getItem("musicTime");
-    if (savedTime) music.currentTime = savedTime;
-});
+// 1. NHẢY GIÂY NGAY LẬP TỨC (Chạy trước khi load xong trang)
+const savedTime = localStorage.getItem("musicTime");
+if (savedTime) {
+    music.currentTime = parseFloat(savedTime) - offsetTime;
+}
+
+// 2. Hàm phát nhạc
+function playMusic() {
+    music.play().catch(() => {});
+}
+
+// Phát ngay và dự phòng click
+playMusic();
+document.addEventListener("click", playMusic, { once: true });
+document.addEventListener("touchstart", playMusic, { once: true });
+
+// 3. Lưu thời gian liên tục
+setInterval(() => {
+    if (!music.paused) {
+        localStorage.setItem("musicTime", music.currentTime);
+    }
+}, 500);
+</script>
 
 // 👇 CHO MOBILE
 document.addEventListener("click", function () {
@@ -59,15 +77,14 @@ music.addEventListener("timeupdate", () => {
     localStorage.setItem("musicTime", music.currentTime)
 })
 </script>
+    
 <script>
 const lines = [
-    "Movie night it is 🎬💕",
-    "But before that...",
+    "Movie night it is 🎬💕, but before that...",
     "Thank you for being so gentle and patient with me.",
     "Thank you for choosing to stay.",
     "I hope we get to create more little moments like this.",
-    "More laughter.",
-    "More soft days.",
+    "More laughter, more soft days.",
     "And more memories together 🤍"
 ];
 
