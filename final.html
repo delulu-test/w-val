@@ -36,46 +36,35 @@
 <audio id="bg-music" loop preload="auto">
     <source src="music/beabadoobee - Glue Song (Lyrics).mp3" type="audio/mpeg">
 </audio>
+
 <script>
-const music = document.getElementById("bg-music");
-const offsetTime = 0.8; 
+    const music = document.getElementById("bg-music");
+    const offsetTime = 0.8; 
 
-// 1. NHẢY GIÂY NGAY LẬP TỨC (Chạy trước khi load xong trang)
-const savedTime = localStorage.getItem("musicTime");
-if (savedTime) {
-    music.currentTime = parseFloat(savedTime) - offsetTime;
-}
-
-// 2. Hàm phát nhạc
-function playMusic() {
-    music.play().catch(() => {});
-}
-
-// Phát ngay và dự phòng click
-playMusic();
-document.addEventListener("click", playMusic, { once: true });
-document.addEventListener("touchstart", playMusic, { once: true });
-
-// 3. Lưu thời gian liên tục
-setInterval(() => {
-    if (!music.paused) {
-        localStorage.setItem("musicTime", music.currentTime);
+    // 1. Nhảy giây ngay lập tức
+    const savedTime = localStorage.getItem("musicTime");
+    if (savedTime) {
+        music.currentTime = parseFloat(savedTime) - offsetTime;
     }
-}, 500);
-</script>
 
-// 👇 CHO MOBILE
-document.addEventListener("click", function () {
-    music.play().catch(()=>{});
-}, { once: true });
+    // 2. Hàm phát nhạc
+    function playMusic() {
+        music.play().catch(() => {});
+    }
 
-music.addEventListener("timeupdate", () => {
-    localStorage.setItem("musicTime", music.currentTime);
-});
-// Lưu thời gian hiện tại liên tục
-music.addEventListener("timeupdate", () => {
-    localStorage.setItem("musicTime", music.currentTime)
-})
+    // Thử phát ngay
+    playMusic();
+
+    // 3. Dự phòng cho Mobile
+    document.addEventListener("click", playMusic, { once: true });
+    document.addEventListener("touchstart", playMusic, { once: true });
+
+    // 4. Lưu thời gian liên tục (để trang cuối cùng vẫn lưu được dữ liệu)
+    setInterval(() => {
+        if (!music.paused) {
+            localStorage.setItem("musicTime", music.currentTime);
+        }
+    }, 500);
 </script>
     
 <script>
