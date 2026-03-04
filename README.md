@@ -8,5 +8,5 @@ Hèn chi mấy bạn IT già sớm là vậy. Tôi chọn cách thấu hiểu ng
 Chiến tranh thế giới thứ 3 xin đừng khắc nghiệt quá với các bạn IT và designer nhé!
 
 BTW hy vọng là đến cỡ 14/3 bọn tôi vẫn còn nói chuyện với nhau, dạo này có hơi tủi thân hi. Tôi cũng ko biết được bao lâu nữa, nhìn các con vợ khác được anhyeu đỡ đần mà ham 😉
-Xong năm nay 2 đứa bạn thân của tôi cưới chồng rồi. Tôi sẽ cảm thấy cô đơn lăm. Với cái gì chưa rõ ràng thì stress lắm các cậu à~ 
+Xong năm nay 2 đứa bạn thân của tôi cưới chồng rồi. Tôi sẽ cảm thấy cô đơn lăm. Với cái gì chưa rõ ràng thì stress lắm các con vợ à~ 
 It’s hard liking someone who’s afraid of commitment. Why is there no commitment yetttttttt?
