@@ -7,7 +7,7 @@ Hèn chi mấy bạn IT già sớm là vậy. Anh chọn cách thấu hiểu nga
 
 Chiến tranh thế giới thứ 3 xin đừng khắc nghiệt quá với các bạn IT và designers nhé!
 
-BTW hy vọng là đến cỡ 14/3 bọn anh vẫn còn nói chuyện với nhau, dạo này anh có hơi tủi thân, anh ovtk gia đoạn cuối rồi các vợ ạ. 
+BTW hy vọng là đến cỡ 14/3 bọn anh vẫn còn nói chuyện với nhau, dạo này anh có hơi tủi thân, anh ovtk giai đoạn cuối rồi các vợ ạ. 
 Anh nghĩ mình bị da chân nách, kiểu như có nhiều linh hồn trong 1 cơ thể. Mood swing liên tục nhưng chủ yếu là cảm thấy tủi thân thôi~
 
 Anh cũng ko biết được bao lâu nữa, nhìn các con vợ khác được chồng đỡ đần mà ham 😉
