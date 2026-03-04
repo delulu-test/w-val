@@ -7,6 +7,9 @@ Hèn chi mấy bạn IT già sớm là vậy. Anh chọn cách thấu hiểu nga
 
 Chiến tranh thế giới thứ 3 xin đừng khắc nghiệt quá với các bạn IT và designers nhé!
 
-BTW hy vọng là đến cỡ 14/3 bọn anh vẫn còn nói chuyện với nhau, dạo này anh có hơi tủi thân, anh ovtk gia đoạn cuối rồi các vợ ạ. Anh cũng ko biết được bao lâu nữa, nhìn các con vợ khác được chồng đỡ đần mà ham 😉
+BTW hy vọng là đến cỡ 14/3 bọn anh vẫn còn nói chuyện với nhau, dạo này anh có hơi tủi thân, anh ovtk gia đoạn cuối rồi các vợ ạ. 
+Anh nghĩ mình bị da chân nách, kiểu như có nhiều linh hồn trong 1 cơ thể. Mood swing liên tục nhưng chủ yếu là cảm thấy tủi thân thôi~
+
+Anh cũng ko biết được bao lâu nữa, nhìn các con vợ khác được chồng đỡ đần mà ham 😉
 Xong năm nay 2 đứa bạn thân của anh cưới chồng rồi. Anh sẽ cô đơn lắm. Với cái gì chưa rõ ràng thì stress lắm các con vợ à~ 
 It’s hard liking someone who’s afraid of commitment. Why is there no commitment yetttttttt?
