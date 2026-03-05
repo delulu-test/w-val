@@ -4,7 +4,7 @@ dựa trên base của 1 ông Ấn độ nào đấy anh random thấy trên ins
 Mất 5 ngày vì anh chả hiểu cmg về code, sửa cái này thì lệch cái kia, ảnh lệch, nhạc lệch, khung to khung nhỏ. Nên ai có thấy thì hoan hỉ nhé, có chửi thì anh cũng ko hiểu. 
 5 ngày là vậy nhưng nhạc vẫn giật, và mở trên điện thoại nhạc bị lặp 🤡 anh hết cách rồi huhu
 
-https://delulu-test.github.io/w-val/ -  tuy vậy nhưng các vợ có thể copy về, thay ảnh thành của mình là được rồi. Anh vui vẻ vì đây thuộc về AI và ông Ấn độ chứ ko phải anh 😃
+https://delulu-test.github.io/w-val/ -  tuy vậy nhưng các vợ có thể copy về, thay ảnh thành của mình là được rồi (anh nghĩ cũng ko có ai vào đây đâu). Anh vui vẻ vì đây thuộc về AI và ông Ấn độ chứ ko phải anh 😃
 
 _____________________________________________________________________________________________________________________________________________________________________________________
 
