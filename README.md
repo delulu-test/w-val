@@ -21,3 +21,11 @@ Anh nghĩ mình bị da chân nách, kiểu như có nhiều linh hồn trong 1 
 Anh cũng ko biết được bao lâu nữa, nhìn các con vợ khác được chồng đỡ đần mà ham 😉 
 Dạo này anh chỉ muốn về quê sà vào vòng tay của bố mẹ. Năm nay 2 đứa bạn thân của anh cưới chồng rồi. Anh sẽ cô đơn lắm. Với cái gì chưa rõ ràng thì stress lắm các con vợ à~ 
 It’s hard liking someone who’s afraid of commitment. Why is there no commitment yetttttttt?
+
+_____________________________________________________________________________________________________________________________________________________________________________________
+
+update 9/3: Và đã ko có phép màu nào xảy ra, nmột ngày 8/3 đẫm máu 
+
+update 10/3: Đã có quyết định riêng, cái kết tốt nhất cho cả hai 
+
+update...
