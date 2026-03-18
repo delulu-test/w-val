@@ -32,4 +32,4 @@ update 12/3: Hay là thôi im lặng từ giờ luôn ta
 
 update 13/3: Tặng và ảnh vui
 
-update 18/3: tối mai kết thúc hết
+update 18/3: Tối mai kết thúc hết. End game.
